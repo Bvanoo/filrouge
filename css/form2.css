@@ -1,0 +1,33 @@
+#container{
+    display: flex;
+    justify-content: center;
+    /* border: 1px solid white; */
+    height: 50vh;
+}
+
+.form-l, .form-r{
+    align-items: stretch;
+    backdrop-filter: blur(5px);
+    padding: 25px;
+}
+
+.form-l{
+    background-color: rgba(252,70,107,.3);
+    display: flex;
+    align-items: center;
+}
+
+.form-r{
+    background-color: rgba(255,255,255,.3);
+    
+}
+
+.form-l p{
+    font-size: 2rem;
+    font-weight: 100;
+    font-style: italic;
+}
+
+.form-r input{
+    display: block;
+}

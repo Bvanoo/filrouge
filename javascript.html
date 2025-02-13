@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mes premiers scripts JavaScript</title>
+    <meta name="description" content="Mes premiers exercices de JS." />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/js.css">
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+
+                <li><a href="javascript.html">JavaScript</a></li>
+
+                <li><a href="formulaire.html">Formulaire</a></li>
+
+                <li> <a href="https://www.interface3namur.be/" target="_blank"
+                        rel="noopener noreferrer">Interface3.Namur</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>JavaScript</h1>
+
+        <section>
+                <h2>Exercice 1 : Affichage des nom et prénom</h2>
+
+                <label for="prenom">Prénom :</label>
+                <input type="text" id="prenom">
+
+                <label for="nom">Nom :</label>
+                <input type="text" id="nom"><br>
+
+                <button onclick="ex1()">Lancer le script</button>
+
+                <p class="rep" id="reponseEx1">Exemple de réponse venant du JavaScript</p>
+        </section>
+        <section>
+                <h2>Exercice 2 : Calcul du prix</h2>
+
+                <label for="prix">Prix :</label>
+                <input type="number" id="prix">
+
+                <label for="qteArt">Quantitée article :</label>
+                <input type="number" id="qteArt"><br>
+
+                <label for="tauxTva">Taux de la tva : (ex: 21 pour 21%)</label>
+                <input type="number" id="tauxTva"><br>
+
+                <button onclick="ex2()">Lancer le script</button>
+
+                <p class="rep" id="reponseEx2">Prix total tvac seras calculer ici.</p>
+        </section>
+        <section>
+            <h2>Exercice 3 : Opérations de base</h2>
+            
+                <label for="nbre1">Premier nombre :</label>
+                <input type="number" id="nbre1">
+                
+                <label for="nbre2">Deuxième nombre :</label>
+                <input type="number" id="nbre2"><br>
+                
+                <button onclick="ex3()">Lancer le script</button>
+                
+                <p class="rep" id="reponseEx3">Ici seras afficher la somme le résultat le quotient et le produit de vos deux chiffre.</p>
+            </section>
+            <section>
+                <h2>Exercice 4 : Opérations de base</h2>
+                
+                <label for="nbreUser">Votre nombre entier :</label>
+                <input type="number" id="nbreUser">
+
+                <button onclick="ex4()">Lancer le script</button>
+                
+                <p class="rep" id="reponseEx4">Si votre chiffre est plus petit ou plus grand que 10, ce seras afficher ici</p>
+            </section>
+            <section>
+                <h2>Exercice 5 : Année bissextile ou non ? </h2>
+                
+                <label for="annUser">Quelle année voulez-vous vérifier ? </label>
+                <input type="number" id="annUser">
+                
+                <button onclick="ex5()">Lancer le script</button>
+                
+                <p class="rep" id="reponseEx5">Si votre année est bissextile ou nous je vous l'afficherais ici.</p>
+            </section>
+            <section>
+                <h2>Exercice 6 : Commentaire sur l'age. </h2>
+                
+                <label for="ageUser">Quel age avez vous ? </label>
+                <input type="number" id="ageUser">
+                
+                <button onclick="ex6()">Lancer le script</button>
+                
+                <p class="rep" id="reponseEx6">Ici seras afficher un petit commentaire sur votre age.</p>
+        </section>
+        <section>
+            <h2>Exercice 7 : Condition pour suivre la formation. </h2>
+            
+            <label for="dateNaissUser">Vous êtes né en quelle année ? </label>
+            <input type="date" id="dateNaissUser">
+            
+            <button onclick="ex7()">Lancer le script</button>
+            
+            <p class="rep" id="reponseEx7">Ici seras afficher si vous pouvez suivre ou non la formation.</p>
+        </section>
+        <section>
+            <h2>Exercice 8 : Choix du tiroir. </h2>
+            
+            <label for="tiroir">Choisisez un tiroir de votre armoire</label>
+            <input type="number" min="1" max="4" id="tiroir">
+        
+            <button onclick="ex8()">Lancer le script</button>
+            
+            <p class="rep" id="reponseEx8">Ici seras afficher le contenus du tiroir séléctionner.</p>
+        </section>
+        <section>
+            <h2>Exercice 9 : Suite de chiffre </h2>
+            
+            <button onclick="ex9()">Lancer le script</button>
+            
+            <p class="rep" id="reponseEx9">Ici seras afficher la suite de chiffre allant de 1 a 10.</p>
+        </section>
+        <section>
+            <h2>Exercice 9bis : Suite de chiffre </h2>
+            
+            <button onclick="ex9bis()">Lancer le script</button>
+            
+            <p class="rep" id="reponseEx9bis">Ici seras afficher la suite de chiffre allant de 1 a 10.</p>
+        </section>
+        <section>
+            <h2>Exercice 10 : Une aventure </h2>
+            
+            <button onclick="ex10()">Partir a l'aventure.</button>
+            
+            <p class="rep" id="reponseEx10"></p>
+            <button id="go" onclick="go()">Continuer</button>
+            <button id="potion" onclick ="potions()">Potions</button>
+        </section>
+        <section>
+            <h2>Exercice bonus : Calculatrice. </h2>
+            <div class="histo">
+
+                <aside>
+                    <p>Calcul effectuer : </p>
+                    <p id="repCalc" value="touche(inputUser)"></p>
+                </aside>
+                <div class="calculatrice">
+                    
+                    <div class="calc">
+                    <div class="supp">   
+                        <div class="screen">    
+                            <p class="calcScreen" id="calcScreen">ex : 4+4=8</p>
+                        </div>
+                        <div class="pave">
+                            <div class="line1">
+                                <button class="case , ope"  data-value="**" id ="exp">x²</button>
+                                <button class="case , ope" data-value="%" id ="modulo" onclick="">%</button>
+                                <button class="case , ope" data-value="C" id ="clear">CE</button>
+                                <button class="case , del" data-value="del" id ="del"><img src="img/delete.png" alt=""></button>
+                            </div>
+                            <div class="line2">
+                                <button class="case , ope"  data-value="1/" id ="fraction">1/x</button>
+                                <button class="case , ope" data-value="(" id ="clearAll">(</button>
+                                <button class="case , ope"  data-value=")" id ="sqrt">)</button>
+                                <button class="case , ope"  data-value="/" id ="div">/</button>
+                            </div>
+                            <div class="line3">
+                                <button class="case"  data-value="7" id ="seven">7</button>
+                                <button class="case"  data-value="8" id ="eight">8</button>
+                                <button class="case"  data-value="9" id ="nine">9</button>
+                                <button class="case , ope"  data-value="*" id ="mult">X</button>
+                            </div>
+                            <div class="line4">
+                                <button class="case" data-value="4" id ="four">4</button>
+                                <button class="case" data-value="5" id ="five">5</button>
+                                <button class="case" data-value="6" id ="six">6</button>
+                                <button class="case , ope" data-value="-" id ="minus">-</button>
+                            </div>
+                            <div class="line5">
+                                <button class="case" data-value="1" id ="one">1</button>
+                                <button class="case" data-value="2" id ="two">2</button>
+                                <button class="case" data-value="3" id ="three">3</button>
+                                <button class="case , ope" data-value="+" id ="plus">+</button>                    
+                            </div>
+                            <div class="line6">
+                                <button class="case , ope" data-value="switch" id ="plusSwitch">+/-</button>
+                                <button class="case" data-value="0" id ="zero">0</button>
+                                <button class="case , ope" data-value="." id ="dot">,</button>
+                                <button class="case , ope" data-value="=" id ="goTo">=</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
+        <!-- <button onclick="exBonus()">Lancer le script</button> -->
+
+    </main>
+
+    <footer>
+        <h2>Informations</h2>
+        <p>Site web réalise dans le cadre des la formation</p>
+        <p><strong>Je m'oriente vers les métiers du web</strong></p>
+        <p><strong>Benjamin Van Oostveldt</strong> &copy;2024</p>
+    </footer>
+    <script src="javascript/script.js"></script>
+</body>
+
+</html>

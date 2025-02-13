@@ -1,0 +1,91 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: linear-gradient(to bottom right, rgba(63,94,251,.9), rgba(252,70,107,.9)), url("../img/banner-01.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    
+    
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    line-height: 1.25;
+
+    display: flex;
+    flex-direction: column;
+
+    /* border: 2px solid yellow; */
+    min-height: 100vh;
+
+}
+
+main{
+    flex-grow: 1;
+    margin: 0 75px;
+}
+
+h1{
+    text-align: center;
+    font-size: 3rem;
+    text-transform: uppercase;
+    font-style: italic;
+    font-weight: 900;
+    padding: 75px;
+    margin-bottom: 48px;
+    /* border: 1px solid white; */
+}
+
+main h2{
+    font-size: 1.4rem;
+    margin-bottom: 24px;
+    padding: 7px 0;
+    border-bottom: 1px solid white;
+}
+
+/* Mise en place de la navigation principale  */
+header ul{
+    text-align: center;
+}
+
+header nav li{
+    margin: 12px;
+    list-style: none;
+    display: inline-block;
+    /* border: 1px solid white; */
+    padding: 10px;
+}
+
+header nav li a{
+    font-size: 1.4rem;
+    font-weight: 100;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 7px;
+}
+
+header nav li a:hover{
+    border-bottom: 1px solid white;
+    background-color: rgba(0,0,0,0.2);
+    transition: 2s;
+    font-weight: 400;
+}
+
+/* Mise en place du footer  */
+footer{
+    background-color: rgba(0,0,0,.3);
+    text-align: center;
+    padding: 16px 0;
+}
+
+
+
+
+
+
+

@@ -1,0 +1,47 @@
+/* Mise en place des liens de index  */
+section{
+    /* border: 1px solid white; */
+    padding: 0 75px;
+}
+
+
+#flexing article{
+    /* border: 1px solid white; */
+    text-align: center;
+    padding: 15px;
+    background-color: rgba(255,255,255,.8);
+    border: 1px solid white;
+    margin-bottom: 24px;
+    height: 100%;
+}
+
+#flexing a{
+    text-decoration: none;
+    color: rgb(22,68,98);
+    margin: 24px 0;
+}
+
+#flexing img{
+    width: 150px;
+    height: auto;
+    margin: 24px 0;
+}
+
+#flexing article:hover{
+    background-color: rgba(252,70,107,.9);
+    color: white;
+    
+}
+
+@media screen and (min-width:992px) {
+    #flexing{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #flexing a{
+        width: 30%;
+    }
+    
+    
+}

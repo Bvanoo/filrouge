@@ -1,0 +1,45 @@
+input, label{
+    display: block;
+    margin-bottom: 12px;
+}
+
+label{
+    font-size: 1.4rem;
+
+}
+
+input{
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255,.4);
+    background-color: rgba(255,255,255,.3);
+    backdrop-filter: blur(7px);
+    font-family: 'Montserrat';
+    font-size: 1.2rem;
+}
+
+input[type="submit"]{
+    width: 25%;
+}
+
+input[type="submit"]:hover{
+    background-color: rgb(252,70,107);
+    color: white;
+}
+
+input::placeholder{
+    font-family: 'Montserrat';
+    font-size: 1.1rem;
+    color: rgba(22,68,98,.4);
+}
+
+section{
+    background-color: rgba(255, 255, 255, .3);
+    backdrop-filter: blur(7px);
+    border: 1px solid rgba(255, 255, 255, .3);
+    width: 75%;
+    margin: 0 auto;
+    padding: 48px 75px;
+    border-radius: 25px;
+}
