@@ -67,7 +67,7 @@ button:hover{
 .calc{
     display: flex;
     border: 2px solid black;
-    width: 25%;
+    width: 400px;
     /* flex-direction: column; */
     /* margin: auto; */
     border-radius: 11px;
