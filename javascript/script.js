@@ -42,18 +42,6 @@ function ex4(){
     }
 }
 
-// function ex5(){
-//     const reponseEx5 = document.getElementById("reponseEx5");
-//     const annUser = parseInt(document.getElementById("annUser").value);
-//     if(annUser%4 == 0 && annUser%100 != 0){ // Il manque la vérification %400 = 0
-//         reponseEx5.innerHTML = `Votre année ${annUser} est bissextile.`;
-//     } else if(annUser%100 == 0 && annUser%400 == 0){ // Il manque la vérification %4 == 0
-//         reponseEx5.innerHTML = `Votre année ${annUser} est bissextile.`;
-//     } else {
-//         reponseEx5.innerHTML = `Votre année ${annUser} n'est pas bissextile.`;
-//     }
-// }
-
 function ex5(){ // CORRECTION (SIMPLIFICATION)
     const reponseEx5 = document.getElementById("reponseEx5");
     const annUser = parseInt(document.getElementById("annUser").value);
@@ -96,75 +84,6 @@ function ex7(){
         reponseEx7.innerHTML = `Vous êtes Voldemort ? Ou ce trouve la fontaine de jouvence ?  Vous avez ${ageAct} ans`;
     }
 }
-
-// Calculatrice.
-
-const calcScreen = document.getElementById("calcScreen");
-const btn = document.querySelectorAll(".case");
-
-let inputUser = "";
-let histo = [];
-// Permet de crée un boucle "forEach" qui a comme attribut function(touche) et donc pour chaque .case récuperer le script va rechercher la valeur présente dans le data-value, reprise par le dataset.value
-btn.forEach(function(touche) {
-    touche.addEventListener("click",function() {
-        const caseCalc = touche.dataset.value;
-        if (caseCalc === '='){ // Ici on verifie si la touche entrée est = et si c'est un égal et si c'est égal j'utilise un objet Function qui va permettre de faire l'expression du resultat grace au return
-            try {
-                let result = new Function('return ' + inputUser)(); // dans ma variable result je lui ajoute un function avec comme parametre return + mon input user ce qui permet de realiser l'expression de l'input user, ensuite j'appelle imédiatement la fonction dans ma variable ce qui lui attribue automatiquement la valeur qui sort de cette fonction et donc la variable result passe de type objet a type number.
-                if (Number.isFinite(result)){                
-                if(Number.isInteger(result)){ // si il est entier pas de restriction sur les virgules 
-                    calcScreen.innerHTML =`${result}`; 
-                    histo.push(`${inputUser} = ${result}`); // Ajoutez l'expression et le résultat à l'historique //.push permet d'ajouter dans le histo []
-                    inputUser = `${result}`;
-                } else {
-                    calcScreen.innerHTML =`${result.toFixed(6)}`;  // si il est décimal, max 6 décimale ( a modifier en math round p-e ? pour ne pas avoir 6 décimale sur un .50 par exemple.)
-                    // inputUser = `${result.toFixed(6)}`;
-                } 
-            }else{
-                throw new Error("Resultat infinis ou invalide");
-            }
-        } catch (error) {
-            calcScreen.innerHTML = "Erreur : veuillez clear."; // j'aurais pu mettre error.mesasge pour afficher le message lier a l'erreur présente.
-        }
-        } else if (caseCalc === 'C') { //si c on supprime tout.
-            inputUser = "";
-            calcScreen.innerHTML = "";
-        }else if (caseCalc ==='del'){
-            inputUser = inputUser.slice(0, -1); //supprime la derniere entrée 
-            calcScreen.innerHTML = inputUser;
-        }else if (caseCalc ==='switch'){ // change le symbole de l'entree par un - et si c'est - ca fait + .
-            if(inputUser !== ""){
-                inputUser = -parseFloat(inputUser);
-                calcScreen.innerHTML = `${inputUser}`;
-            }else{
-                inputUser += caseCalc;
-                calcScreen.innerHTML = `${inputUser}`;
-                histo.push(`${inputUser} = ${calcScreen.innerHTML}`);
-            }
-        }else {
-            inputUser += caseCalc;
-            calcScreen.innerHTML = `${inputUser}`;
-        }
-        // Affiche dans une autres div comme pour garder un historique (pas encore en place.)
-        if (caseCalc === '=') { // Si "=" est pressé, ajoutez l'expression et le résultat à l'historique
-            let resultat = new Function('return ' + inputUser)();
-            if(Number.isInteger(resultat)) {
-                calcScreen.innerHTML = `${resultat}`;
-            } else {
-                calcScreen.innerHTML = `${resultat.toFixed(6)}`;
-            }
-
-            // Récuperation de l'expression et du résultat dans un historique avec une limite de 10 calcul.
-            const repCalc = document.getElementById("repCalc");
-            repCalc.innerHTML = histo.join('<br>').split(); // Affiche chaque entrée de l'historique sur une nouvelle ligne
-            if (histo.length > 10){
-                repCalc.innerHTML = histo.join('<br>').split(); // Affiche chaque entrée de l'historique sur une nouvelle ligne
-                histo = histo.splice(1, 1);
-                repCalc.innerHTML = histo.join('<br>').split(); // Affiche chaque entrée de l'historique sur une nouvelle ligne
-            }
-        }
-    })
-});
 
 //Switch de tiroir. 
 
@@ -211,27 +130,84 @@ function ex9bis(){
 
 
 function ex10(){
+
     let pdvUser = 100;
-    let continuer = "oui";
-    const prenom = "Alain";
-    const ennemi = "Sebastien !VAN HOUTEN! ";
-    const reponseEx10 = document.getElementById("reponseEx10");
     let pdvEnnemi = 100;
-    let i = 1;
+    const pseudoUser = document.getElementById('pseudoUser').value;
+    const pseudoEnnemi = document.getElementById('pseudoEnnemi').value;
+    const reponseEx10 = document.getElementById("reponseEx10");
     reponseEx10.innerHTML = "";
-    while(pdvUser > 0 && pdvEnnemi > 0){
-        // continuer = prompt("Que voulez-vous faire ? Tapez 'oui' pour continuer le combat ou 'potion' pour utiliser une potion.");        
-        // if(continuer)
-        let dgtUser = Math.floor(Math.random()*60);
+
+    function dgtRandom(){
         let dgtEnnemi = Math.floor(Math.random()*60);
-        pdvUser = pdvUser - dgtEnnemi; 
-        pdvEnnemi = pdvEnnemi - dgtUser; 
-        reponseEx10.innerHTML += `<strong>Au combat n°${i}:</strong> </br>${ennemi} inflige ${dgtEnnemi} dégats a ${prenom}. <br>Il reste ${pdvUser} PV à ${prenom} <br> <br>${prenom} inflige ${dgtUser} dégats à ${ennemi}. <br>Il reste ${pdvEnnemi} PV à Dragon. <br><br>`;
-        i++;
+        let dgtUser = Math.floor(Math.random()*60);
+        return {dgtUser, dgtEnnemi};
     }
-    if(pdvUser <= 0){
-        reponseEx10.innerHTML += `<strong>${prenom} a perdu la bataille ! ${prenom} est mort après ${i} combats.</strong><br><button onclick="ex10()">Recommencez l'aventure.</button>`;
+    
+    function affInner(whoStart, i, dmg, pdvUser, pdvEnnemi){ //On crée une fonction dans laquelle on y ajoute des parametre qui sont des variable établie plus tot dans la boucle avant l'appel de fonction. 
+        if(whoStart === 1){
+            reponseEx10.innerHTML += `<br><strong>Au combat n°${i}:</strong> </br>${pseudoEnnemi} inflige ${dmg.dgtEnnemi} dégats a ${pseudoUser}. <br>Il reste ${pdvUser} PV à ${pseudoUser} <br> <br>${pseudoUser} inflige ${dmg.dgtUser} dégats à ${pseudoEnnemi}. <br>Il reste ${pdvEnnemi} PV à ${pseudoEnnemi}. <br><br>`;
+        }else{
+            reponseEx10.innerHTML += `<br><strong>Au combat n°${i}:</strong> </br>${pseudoUser} inflige ${dmg.dgtUser} dégats a ${pseudoEnnemi}. <br>Il reste ${pdvUser} PV à ${pseudoEnnemi} <br> <br>${pseudoEnnemi} inflige ${dmg.dgtEnnemi} dégats à ${pseudoUser}. <br>Il reste ${pdvUser} PV à ${pseudoUser}. <br><br>`;
+        }
+    }
+    
+    if(pseudoUser ===""){
+        reponseEx10.innerHTML = `Veuillez entrez un Pseudo pour vous Svp.`;
+    }else if(pseudoEnnemi ===""){
+        reponseEx10.innerHTML = `Veuillez entrez un Pseudo pour l'antagoniste Svp.`;
+    } else {
+        const whoStart = Math.floor(Math.random()*2);
+        const playerOne = whoStart === 1 ? 'ennemi' : 'user';  // Ici structure conditionnelle si whoStart =1 alors 'ennemi' sinon 'user'
+        reponseEx10.innerHTML = `${playerOne === 'ennemi' ? pseudoEnnemi : pseudoUser} Commence la partie.<br>`; // Meme structure conditionnelle sauf que si = 'ennemi' (récuperer au dessus) alors on affiche le pseudoEnnemi sinon pseudo joueur. 
+        let i = 1;
+        while(pdvUser > 0 && pdvEnnemi > 0){
+                const dmg = dgtRandom(); //Appel de la fonction dgtRandom dans la constante dmg pour lui approter les dgt de chacun. 
+                pdvUser = pdvUser - dmg.dgtEnnemi;  // on utilise les dgtEnnemi stocker dans dmg
+                pdvEnnemi = pdvEnnemi - dmg.dgtUser; 
+                affInner(whoStart, i, dmg ,pdvUser ,pdvEnnemi);
+                i++;
+            }
+        if (pdvEnnemi <= 0 && pdvUser <= 0){
+            reponseEx10.innerHTML += `<strong>${pseudoEnnemi} et ${pseudoUser} ont perdu la bataille ! ${pseudoEnnemi} et ${pseudoUser} sont mort après ${i} combats.</strong><br><button onclick="ex10()">Recommencez l'aventure.</button>`;
+        } else if(pdvUser <= 0){
+            reponseEx10.innerHTML += `<strong>${pseudoUser} a perdu la bataille ! ${pseudoUser} est mort après ${i} combats.</strong><br><button onclick="ex10()">Recommencez l'aventure.</button>`;
     } else if (pdvEnnemi <= 0){
-        reponseEx10.innerHTML += `<strong>${ennemi} a perdu la bataille ! ${ennemi} est mort après ${i} combats.</strong><br><button onclick="ex10()">Recommencez l'aventure.</button>`;
+        reponseEx10.innerHTML += `<strong>${pseudoEnnemi} a perdu la bataille ! ${pseudoEnnemi} est mort après ${i} combats.</strong><br><button onclick="ex10()">Recommencez l'aventure.</button>`;
     }
 }
+}
+
+function changeBg(){
+    const select = document.getElementById('selectBg').value;
+    let backgroundImage = document.body.style.backgroundImage = select;
+    document.body.style.backgroundColor = "rgba(40,40,40,.3)";
+    document.body.style.backgroundBlendMode = "overlay"; 
+    console.log(backgroundImage);
+    localStorage.setItem('userBackground', backgroundImage);
+}
+
+function restoreBackground() {
+    const savedBackground = localStorage.getItem('userBackground');
+    if (savedBackground) {
+        document.body.style.backgroundImage = savedBackground;
+    }
+}
+window.onload = restoreBackground;
+
+let quotesListIndex = 0;
+const quotesList = [
+    "Nous sommes ce qu nous faisons de manière répétitive, l'excellence n'est donc pas un acte mais une habitude. <br><q>Aristote</q>","Le meilleur moyen de réussir, c'est toujours d'essayer encore une fois.<br><q>Thomas Edison </q>","Aucun de nous ne sait ce que nous savons tous ensemble. <br><q>Euripide</q>"
+];
+
+function quotes(){
+    const quote = document.getElementById("quote");
+        if (quotesListIndex == 2){
+            quotesListIndex =0;
+        }else{
+            quotesListIndex++;
+        }
+        quote.innerHTML = quotesList[quotesListIndex];
+}
+
+setInterval(quotes, 5000);

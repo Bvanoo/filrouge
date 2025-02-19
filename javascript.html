@@ -143,73 +143,32 @@
         </section>
         <section>
             <h2>Exercice 10 : Une aventure </h2>
-            
+            <label for="pseudoUser">Votre pseudo : </label>
+            <input type="text" id="pseudoUser">
+            <label for="pseudoEnnemi">Pseudo de l'antagoniste : </label>
+            <input type="text" id="pseudoEnnemi">
             <button onclick="ex10()">Partir a l'aventure.</button>
             
             <p class="rep" id="reponseEx10"></p>
-            <button id="go" onclick="go()">Continuer</button>
-            <button id="potion" onclick ="potions()">Potions</button>
+            <!-- <button id="go" onclick="go()">Continuer</button>
+            <button id="potion" onclick ="potions()">Potions</button> -->
         </section>
         <section>
-            <h2>Exercice bonus : Calculatrice. </h2>
-            <div class="histo">
-
-                <aside>
-                    <p>Calcul effectuer : </p>
-                    <p id="repCalc" value="touche(inputUser)"></p>
-                </aside>
-                <div class="calculatrice">
-                    
-                    <div class="calc">
-                    <div class="supp">   
-                        <div class="screen">    
-                            <p class="calcScreen" id="calcScreen">ex : 4+4=8</p>
-                        </div>
-                        <div class="pave">
-                            <div class="line1">
-                                <button class="case , ope"  data-value="**" id ="exp">x²</button>
-                                <button class="case , ope" data-value="%" id ="modulo" onclick="">%</button>
-                                <button class="case , ope" data-value="C" id ="clear">CE</button>
-                                <button class="case , del" data-value="del" id ="del"><img src="img/delete.png" alt=""></button>
-                            </div>
-                            <div class="line2">
-                                <button class="case , ope"  data-value="1/" id ="fraction">1/x</button>
-                                <button class="case , ope" data-value="(" id ="clearAll">(</button>
-                                <button class="case , ope"  data-value=")" id ="sqrt">)</button>
-                                <button class="case , ope"  data-value="/" id ="div">/</button>
-                            </div>
-                            <div class="line3">
-                                <button class="case"  data-value="7" id ="seven">7</button>
-                                <button class="case"  data-value="8" id ="eight">8</button>
-                                <button class="case"  data-value="9" id ="nine">9</button>
-                                <button class="case , ope"  data-value="*" id ="mult">X</button>
-                            </div>
-                            <div class="line4">
-                                <button class="case" data-value="4" id ="four">4</button>
-                                <button class="case" data-value="5" id ="five">5</button>
-                                <button class="case" data-value="6" id ="six">6</button>
-                                <button class="case , ope" data-value="-" id ="minus">-</button>
-                            </div>
-                            <div class="line5">
-                                <button class="case" data-value="1" id ="one">1</button>
-                                <button class="case" data-value="2" id ="two">2</button>
-                                <button class="case" data-value="3" id ="three">3</button>
-                                <button class="case , ope" data-value="+" id ="plus">+</button>                    
-                            </div>
-                            <div class="line6">
-                                <button class="case , ope" data-value="switch" id ="plusSwitch">+/-</button>
-                                <button class="case" data-value="0" id ="zero">0</button>
-                                <button class="case , ope" data-value="." id ="dot">,</button>
-                                <button class="case , ope" data-value="=" id ="goTo">=</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <h2>Changer le fond d'écran</h2>
+            <select name="changeBg" id="selectBg" onchange="changeBg()">
+                <option value="">-- Choisissez un thème. --</option>
+                <option value="url('../img/morning.webp')">Morning</option>
+                <option value="url('../img/lunch.webp')">Lunch</option>
+                <option value="url('../img/sunset.webp')">Sunset</option>
+            </select>
         </section>
-        <!-- <button onclick="exBonus()">Lancer le script</button> -->
-
+        <section>
+            <h2>Générateur de citation</h2>
+            <div>
+                <p id="quote">Quelques citations...</p>
+            </div>
+        </section>
+        
     </main>
 
     <footer>
